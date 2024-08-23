@@ -15,6 +15,8 @@ console.log(fragCode);
 // 2. Attach Shader Source Code
 const vertexShader = gl.createShader(gl.VERTEX_SHADER);
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(vertexShader, vertCode);
+gl.shaderSource(fragmentShader, fragCode);
 // 3. Compile the Shaders
 gl.compileShader(vertexShader);
 gl.compileShader(fragmentShader);
