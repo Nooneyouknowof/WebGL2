@@ -3,5 +3,5 @@ const serverUrl = `${window.location.protocol}//${window.location.hostname}:${wi
 export async function readFile(path) {
     const response = await fetch(`${serverUrl}/${path}`);
     const data = await response.text();
-    return data;
+    return data.trim();
 }
