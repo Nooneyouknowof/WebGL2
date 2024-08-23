@@ -38,6 +38,8 @@ gl.useProgram(shaderProgram);
 if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
     console.error("Unable to initialize the shader program: " + gl.getProgramInfoLog(shaderProgram));
 }
+// 6. Link vertex data to shader attributes
+const position = gl.getAttribLocation(shaderProgram, "position");
 
 const vertices = new Float32Array([
     0.0, 1.0,
@@ -49,8 +51,6 @@ const vertexBuffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
-// Link vertex data to shader attributes
-const position = gl.getAttribLocation(shaderProgram, "position");
 gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
 gl.enableVertexAttribArray(position);
 
